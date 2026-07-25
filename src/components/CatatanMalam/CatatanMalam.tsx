@@ -287,8 +287,8 @@ export default function CatatanMalam() {
               className="flex flex-col w-full items-center justify-center flex-1 py-12"
             >
               <div className="w-32 h-32 rounded-full bg-gradient-to-b from-[#A3B899] to-zinc-900/50 shadow-[0_0_40px_rgba(163,184,153,0.15)] backdrop-blur-sm flex items-center justify-center mb-10 border border-[#A3B899]/20">
-                 <span className="text-5xl">😌</span>
-              </div>
+  <Leaf size={48} className="text-[#A3B899]" strokeWidth={2} />
+</div>
               
               <h2 className="text-2xl font-semibold mb-4 tracking-tight text-center text-white drop-shadow-md">Catatanmu tersimpan 💚</h2>
               <p className="text-sm text-gray-300 text-center mb-12 px-4 leading-relaxed">

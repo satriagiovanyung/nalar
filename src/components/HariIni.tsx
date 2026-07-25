@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TrendingUp, ArrowRight, Sparkles, X } from 'lucide-react';
 import { generateInsight } from '../utils/engine';
@@ -11,6 +11,7 @@ export default function HariIni() {
   const [insight, setInsight] = useState({ title: '', text: '' });
   const [recordCount, setRecordCount] = useState(0);
   const [isDetailOpen, setIsDetailOpen] = useState(false);
+  const [greeting, setGreeting] = useState({ title: 'Selamat pagi', subtitle: 'Ini Temuan Nalar hari ini' });
 
   useEffect(() => {
     const savedData = localStorage.getItem('nalar_records');
@@ -19,6 +20,19 @@ export default function HariIni() {
     setRecordCount(records.length);
     const result = generateInsight(records);
     setInsight(result);
+
+    // Logika Sapaan Berdasarkan Jam Sistem
+    const currentHour = new Date().getHours();
+    
+    if (currentHour >= 4 && currentHour < 11) {
+      setGreeting({ title: 'Selamat pagi', subtitle: 'Ini Temuan Nalar hari ini' });
+    } else if (currentHour >= 11 && currentHour < 15) {
+      setGreeting({ title: 'Selamat siang', subtitle: 'Evaluasi paruh hari Nalar' });
+    } else if (currentHour >= 15 && currentHour < 18) {
+      setGreeting({ title: 'Selamat sore', subtitle: 'Menjelang penutupan hari' });
+    } else {
+      setGreeting({ title: 'Selamat malam', subtitle: 'Refleksi akhir hari Nalar' });
+    }
   }, []);
 
   return (
@@ -98,10 +112,10 @@ export default function HariIni() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="z-10 relative flex flex-col h-full"
       >
-        {/* Header Sapaan */}
+        {/* Header Sapaan Dinamis */}
         <div className="mb-8">
-          <h1 className="text-3xl font-semibold mb-1 tracking-tight text-white drop-shadow-md">Selamat pagi,</h1>
-          <h2 className="text-xl text-gray-300 font-medium drop-shadow-md">Ini Temuan Nalar hari ini</h2>
+          <h1 className="text-3xl font-semibold mb-1 tracking-tight text-white drop-shadow-md">{greeting.title},</h1>
+          <h2 className="text-xl text-gray-300 font-medium drop-shadow-md">{greeting.subtitle}</h2>
         </div>
 
         {/* Badge Nomor Temuan */}
