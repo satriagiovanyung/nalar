@@ -1,9 +1,9 @@
 // src/App.tsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Home, Moon, User } from 'lucide-react';
 import CatatanMalam from './components/CatatanMalam/CatatanMalam';
 import HariIni from './components/HariIni';
-import Saya from './components/Saya'; // <-- 1. IMPORT KOMPONEN SAYA
+import Saya from './components/Saya';
 
 type Tab = 'hariIni' | 'catatanMalam' | 'saya';
 
@@ -20,7 +20,6 @@ export default function App() {
           {activeTab === 'hariIni' && <HariIni />}
           {activeTab === 'catatanMalam' && <CatatanMalam />}
           
-          {/* 2. GANTI PLACEHOLDER DIV DENGAN KOMPONEN <SAYA /> */}
           {activeTab === 'saya' && <Saya />}
         </div>
 
