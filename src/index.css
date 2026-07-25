@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+body {
+  background-color: #09090B; /* Hitam pekat elegan */
+  color: #FAFAFA;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Kustomisasi scrollbar agar tersembunyi namun tetap bisa di-scroll */
+::-webkit-scrollbar {
+  display: none;
+}
