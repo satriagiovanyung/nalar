@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { TrendingUp, ArrowRight, Sparkles, X } from 'lucide-react';
+import { TrendingUp, ArrowRight, Sparkles, X, Leaf } from 'lucide-react';
 import { generateInsight } from '../utils/engine';
 import type { DailyRecord } from '../utils/engine';
 
@@ -112,6 +112,16 @@ export default function HariIni() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="z-10 relative flex flex-col h-full"
       >
+        {/* Logo Nalar */}
+        <div className="flex items-center gap-2.5 mb-7">
+          <div className="w-9 h-9 rounded-xl bg-[#A3B899] flex items-center justify-center shadow-[0_0_20px_rgba(163,184,153,0.35)]">
+            <Leaf size={19} className="text-black" strokeWidth={2.75} />
+          </div>
+          <span className="text-lg font-bold tracking-tight text-white uppercase">
+            Nalar
+          </span>
+        </div>
+
         {/* Header Sapaan Dinamis */}
         <div className="mb-8">
           <h1 className="text-3xl font-semibold mb-1 tracking-tight text-white drop-shadow-md">{greeting.title},</h1>
